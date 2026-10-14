@@ -1,0 +1,153 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VaultSecure | Bank Locker</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">🔐</div>
+      <div>
+        <h1>VaultSecure</h1>
+        <p>Digital Bank Locker Security System</p>
+      </div>
+    </div>
+    <span class="online">● SYSTEM ONLINE</span>
+  </header>
+
+  <main>
+    <section class="intro">
+      <p class="eyebrow">SECURITY CONTROL CENTER</p>
+      <h2>Locker Access Dashboard</h2>
+      <p class="description">
+        Secure locker access using PIN verification and automatic
+        security lockout after three incorrect attempts.
+      </p>
+    </section>
+
+    <div class="dashboard">
+      <section class="card">
+        <div class="card-heading">
+          <h3>Vault Status</h3>
+          <span class="small">LOCKER 001</span>
+        </div>
+
+        <div class="vault">
+          <div class="door" id="door">
+            <div class="lock-icon" id="lockIcon">🔒</div>
+            <p id="doorCaption">LOCKED VAULT</p>
+            <div class="wheel"></div>
+          </div>
+        </div>
+
+        <div class="status" id="statusBox">
+          <span class="status-dot"></span>
+          <span id="statusText">Locker is secured</span>
+        </div>
+
+        <div class="metrics">
+          <div class="metric">
+            <p>FAILED ATTEMPTS</p>
+            <strong id="attemptCount">0 / 3</strong>
+          </div>
+          <div class="metric">
+            <p>ACCESS STATUS</p>
+            <strong id="accessMetric">DENIED</strong>
+          </div>
+          <div class="metric">
+            <p>SECURITY MODE</p>
+            <strong id="modeMetric">READY</strong>
+          </div>
+        </div>
+
+        <div class="progress">
+          <div id="attemptProgress"></div>
+        </div>
+
+        <div class="message" id="systemMessage">
+          System ready. Enter your PIN to continue.
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card-heading">
+          <h3>Authentication Panel</h3>
+          <span class="small">4-DIGIT PIN</span>
+        </div>
+
+        <label for="pin">Enter security PIN</label>
+        <div class="pin-row">
+          <input id="pin" type="password" maxlength="4"
+            inputmode="numeric" placeholder="••••" autocomplete="off">
+          <button id="showPin" type="button" class="secondary">Show</button>
+        </div>
+
+        <button id="submitBtn" class="primary full">
+          Verify PIN &amp; Access Locker
+        </button>
+
+        <div class="keypad" id="keypad">
+          <button data-key="1">1</button>
+          <button data-key="2">2</button>
+          <button data-key="3">3</button>
+          <button data-key="4">4</button>
+          <button data-key="5">5</button>
+          <button data-key="6">6</button>
+          <button data-key="7">7</button>
+          <button data-key="8">8</button>
+          <button data-key="9">9</button>
+          <button data-key="clear">C</button>
+          <button data-key="0">0</button>
+          <button data-key="back">⌫</button>
+        </div>
+
+        <button id="relockBtn" class="success full" disabled>
+          🔒 Relock Locker
+        </button>
+        <button id="resetBtn" class="secondary full">
+          ↻ Reset Demo
+        </button>
+
+        <div class="message info-message" id="authMessage">
+          Demo PIN: 2580. Educational simulation only.
+        </div>
+      </section>
+    </div>
+
+    <section class="card log-card">
+      <div class="card-heading">
+        <h3>Security Event History</h3>
+        <button id="clearLogBtn" class="secondary">Clear History</button>
+      </div>
+      <div id="eventLog" class="event-log"></div>
+    </section>
+
+    <section class="card logic-card">
+      <h3>Digital Logic Overview</h3>
+      <p>
+        <b>Input:</b> PIN, access request and reset signal.
+      </p>
+      <p>
+        <b>Processing:</b> PIN comparison, failed-attempt counter
+        and conditional lockout.
+      </p>
+      <p>
+        <b>Output:</b> Locker unlock, alarm and lockout status.
+      </p>
+      <p class="small">
+        Browser simulation is separate from the Verilog module.
+        Run locker.v and locker_tb.v using IVerilog to verify the logic.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    VaultSecure | College Mini Project | HTML, CSS, JavaScript &amp; Verilog
+  </footer>
+</body>
+</html>
